@@ -29,9 +29,7 @@ function exercicio11() {
     //Processamento
     var positivo = numero >= 0;
     //SAida
-    alert("O numero é: " + (positivo
-        ? "Positivo"
-        : "Negativo"));
+    alert("O numero é: " + (positivo ? "Positivo" : "Negativo"));
 }
 
 function exercicio12() {
@@ -45,9 +43,7 @@ function exercicio12() {
     if (numero == 0) {
         alert("O numero é neutro");
     } else {
-        alert("O numero é: " + (par
-            ? "Par"
-            : "Impar"));
+        alert("O numero é: " + (par ? "Par" : "Impar"));
     }
 }
 
@@ -59,9 +55,7 @@ function exercicio13() {
     //Processamento
     var par = numero % 2 != 1;
     //SAida
-    alert("Só exibe se o numero for par: " + (par
-        ? numero
-        : "é Impar"));
+    alert("Só exibe se o numero for par: " + (par ? numero : "é Impar"));
 }
 
 function exercicio14() {
@@ -178,11 +172,7 @@ function exercicio15() {
         notas += parseFloat(prompt("Digite a Nota" + c))
     }
     var media = notas / qtd;
-    alert("Você " + (media < 5
-        ? "foi REPROVADO"
-        : media >= 7
-            ? "foi APROVADO"
-            : "ficou de RECUPERAÇÃO") + " sua media foi de: " + media);
+    alert("Você " + (media < 5 ? "foi REPROVADO" : media >= 7 ? "foi APROVADO" : "ficou de RECUPERAÇÃO") + " sua media foi de: " + media);
 }
 
 function exercicioExtra() {
@@ -285,19 +275,18 @@ function exercicioLoopNumeroPar() {
     var tentativas = 0;
     while (numero % 2 == 1) {
         numero = parseInt(prompt("Digite um numero!"))
-        if(isNaN(numero)){
-            numero = 1;            
+        if (isNaN(numero)) {
+            numero = 1;
             alert("Digite apenas numeros pares; tentativas: " + ++tentativas);
             continue;
         }
-        if (numero % 2 == 1) {           
+        if (numero % 2 == 1) {
             alert("Digite apenas numeros pares; tentativas: " + (++tentativas));
         } else {
             alert("Numero Par: " + numero);
-        } 
+        }
     }
 }
-
 
 function exercicioLoopSomatoria() {
     /*    Faça um programa que receba 15 números inteiros e imprima na tela a somatória dos 15 números.     */
@@ -306,53 +295,125 @@ function exercicioLoopSomatoria() {
     var contador = 1;
     while (contador <= qtd) {
         var numero;
-        do{
-            numero = parseInt(prompt("Digite o " + contador + "° numero!"))
-            if(isNaN(numero)){
-                alert("Digite um numero inteiro valido!!");    
+        do
+        {
+            numero = parseInt(prompt("Digite o " + contador + "° numero!"));
+            if (isNaN(numero)) {
+                alert("Digite um numero inteiro valido!!");
             }
-        }while(isNaN(numero))
-        somatoria += numero;
+        }
+        while (isNaN(numero)) 
+            somatoria += numero;
         contador++;
     }
-    alert("A soma de todos os numeros é: " + somatoria);    
+    alert("A soma de todos os numeros é: " + somatoria);
 }
 
-function exercicioImprimirNumerosImpares(numero){
+function exercicioImprimirNumerosImpares(numero) {
     var text = "";
-    var c=0;
-    while(numero >= c){
-        text += (c % 2 == 1 ? c :"\n");
+    var c = 0;
+    while (numero >= c) {
+        text += (c % 2 == 1
+            ? c
+            : "\n");
         c++;
     }
     alert(text);
 }
 
-function exercicioImprimirTabuada(numero){
+function exercicioImprimirTabuada(numero) {
     var text = "";
     var c = 0;
-    while(10 >= c){
+    while (10 >= c) {
         text += numero + ' X ' + c + ' = ' + (numero * c) + '\n';
         c++;
     }
     alert(text);
 }
 
-function exercicioImprimirTabuadaDe1a10(){
-    var text = "";
+function exercicioImprimirTabuadaDe1a10() {
+    var text = "<div style='text-align:center;'>COM WHILE</div><div style='border:1px solid'>";
     var c = 1;
-    var c2 = 1;
-    while(10 >= c){
-        while(10 >= c2){
-            text += '<div style="display:inline-block; width:100px;">' +  c2 + ' X ' + c + ' = ' + (c2 * c) + '</div>'
+    while (10 >= c) {
+        var c2 = 1;
+        while (10 >= c2) {
+            text += '<div style="display:inline-block; width:100px;">' + c2 + ' X ' + c + ' = ' + (c2 * c) + '</div>'
             c2++
         }
-        c2 = 1;
-        text += '\n' + '<br>';
+        text += '\n<br>';
         c++;
-    }   
+    }
     //window.open(text)
-    document.getElementById("tabuada").write(text);
-    //document.write(text);
-    //alert(text);
+    document
+        .getElementById("tabuadaDe1a10")
+        .innerHTML = text + "</div>";
+    document
+        .getElementById("tabuadaDe1a10Link")
+        .click();
+    //document.write(text); alert(text);
+}
+
+function exercicioImprimirTabuadaDe1a10For() {
+    var text = "<div style='text-align:center;'>COM FOR</div><div style='border:1px solid'>";
+    for (var c = 1; 10 >= c; c++) {
+        for (var c2 = 1; 10 >= c2; c2++) {
+            text += '<div style="display:inline-block; width:100px;">' + c2 + ' X ' + c + ' = ' + (c2 * c) + '</div>'
+        }
+        text += '\n<br>';
+    }
+    //window.open(text)
+    document
+        .getElementById("tabuadaDe1a10")
+        .innerHTML = text + "</div>";
+    document
+        .getElementById("tabuadaDe1a10Link")
+        .click();
+    //document.write(text); alert(text);
+}
+
+function exercicioImprimirTabuadaDe1a10DoWhile() {
+    var text = "<div style='text-align:center;'>COM DO While</div><div style='border:1px solid'>";
+    var c = 1;
+    do
+    {
+        var c2 = 1;
+        do
+        {
+            text += '<div style="display:inline-block; width:100px;">' + c2 + ' X ' + c + ' = ' + (c2 * c) + '</div>';
+            c2++
+        }
+        while (10 >= c2) 
+            text += '\n<br>';
+        c++
+    }
+    while (10 >= c) 
+        //window.open(text)
+        document.getElementById("tabuadaDe1a10").innerHTML = text + "</div>";
+    var heightPage = document.body.scrollHeight;
+    window.scrollTo(0, heightPage);
+    //document.write(text); alert(text);
+}
+
+function exercicioFuncoes() {
+    var obj = {
+        'somar': function (a, b) {
+            return a + b;
+        },
+        'subtrair': function (a, b) {
+            return a - b;
+        },
+        'multiplicar': function (a, b) {
+            return a * b;
+        },
+        'dividir': function (a, b) {
+            if (b == 0) {
+                return "Nâo pode ter zero na divisão";
+            }
+            return a / b;
+        }
+    }
+    var a = parseFloat(prompt("Digite o primeiro numero"))
+    var b = parseFloat(prompt("Digite o segundo numero"))
+    var o = prompt("Digite a operação numero")
+    alert("Resultado da operação é : " + obj[o](a, b))
 }
