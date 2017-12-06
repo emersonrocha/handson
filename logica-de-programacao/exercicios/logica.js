@@ -417,3 +417,42 @@ function exercicioFuncoes() {
     var o = prompt("Digite a operação numero")
     alert("Resultado da operação é : " + obj[o](a, b))
 }
+
+function exercicioObjeto(){
+    obj = {
+        resultado: null,
+        a:null,
+        b:null,
+        somar:function(){
+            this.resultado = this.a + this.b
+            return this.result
+        },
+        iniciarValores:function(a,b){
+            this.a = a,
+            this.b = b
+        }
+    }
+    obj.iniciarValores(1,2);
+    alert("A Soma" + obj.somar());
+}
+
+function exercicioArray(){
+    var teste = [];
+    console.time("teste");
+    while(teste.length < 100000){
+        teste.push("NOVO + " + teste.length);
+        console.log(teste);
+    }
+    console.timeEnd("teste");
+}
+
+function exercicioArrayComNumeros(){
+    /* Faça um programa que solicite 5 numeros . 
+    se for par multiplique por 2 e se for impar apenas guarde no array */
+    var array = [];
+    for(var c = 0; c <= 5 ; c++){
+        var aux = parseFloat(prompt("Digite um numero: "));
+        array.push(aux % 2 != 1 ? aux * 2 : aux) 
+    }
+    alert(array);
+}
