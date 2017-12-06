@@ -439,10 +439,10 @@ function exercicioObjeto(){
 function exercicioArray(){
     var teste = [];
     console.time("teste");
-    while(teste.length < 100000){
-        teste.push("NOVO + " + teste.length);
-        console.log(teste);
+    while(teste.length < 100000000){
+        teste.push("NOVO + " + teste.length);        
     }
+    console.log(teste);
     console.timeEnd("teste");
 }
 
@@ -455,4 +455,22 @@ function exercicioArrayComNumeros(){
         array.push(aux % 2 != 1 ? aux * 2 : aux) 
     }
     alert(array);
+}
+
+function exercicioArray37(){
+    /** 37. Faça um programa que contenha um vetor de 10 elementos. 
+     * Solicite ao usuário que digite números pares, inteiros, e os guarde no vetor. 
+     * Para isso utilize a estrutura de repetição ENQUANTO. Ao final, 
+     * exiba todos os valores com a estrutura de repetição PARA.  */
+
+     var vt = [];
+     var qtd = 10;     
+     while(vt.length < qtd){
+        vt.push(parseFloat(prompt("Digite o "+ (vt.length+1) + "° numero.")))
+     }
+     var text = "Numeros digitados: ";
+     for(var c2 = 0; c2 < vt.length ; c2++){
+        text += vt[c2] + " ";
+     }
+     alert(text);
 }
